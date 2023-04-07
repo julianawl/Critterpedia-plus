@@ -1,3 +1,2 @@
-# critterpedia_plus
-
-A new Flutter project.
+# Critterpedia-plus
+ACNH Critterpedia
