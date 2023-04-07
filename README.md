@@ -1,0 +1,2 @@
+# Critterpedia-plus
+ACNH Critterpedia
