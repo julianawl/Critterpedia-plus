@@ -1,23 +1,23 @@
-import 'package:critterpedia_plus/presentation/screens/home/tabs/bugs/bugs_bloc.dart';
-import 'package:critterpedia_plus/presentation/screens/home/tabs/bugs/bugs_state.dart';
+import 'package:critterpedia_plus/presentation/screens/home/tabs/fish/fish_bloc.dart';
+import 'package:critterpedia_plus/presentation/screens/home/tabs/fish/fish_state.dart';
 import 'package:critterpedia_plus/presentation/screens/home/tabs/widgets/list_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class BugsTab extends StatefulWidget {
-  const BugsTab({super.key});
+class FishTab extends StatefulWidget {
+  const FishTab({super.key});
 
   @override
-  State<BugsTab> createState() => _BugsTabState();
+  State<FishTab> createState() => _FishTabState();
 }
 
-class _BugsTabState extends State<BugsTab> {
-  late final BugsBloc bloc;
+class _FishTabState extends State<FishTab> {
+  late final FishBloc bloc;
 
   @override
   void initState() {
     super.initState();
-    bloc = BlocProvider.of<BugsBloc>(context);
+    bloc = BlocProvider.of<FishBloc>(context);
   }
 
   @override
@@ -28,19 +28,21 @@ class _BugsTabState extends State<BugsTab> {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<BugsBloc, BugsState>(
+    return BlocBuilder<FishBloc, FishState>(
       bloc: bloc,
       builder: (context, state) => Builder(
         builder: (context) {
           return GridView.count(
             crossAxisCount: 3,
             children: List.generate(
-              state.bugs.length,
+              state.fish.length,
               (index) => Padding(
                 padding: const EdgeInsets.all(8.0),
-                child: ListItem(name: state.bugs[index].name,
-                  iconUrl: state.bugs[index].iconUrl,
-                  price: state.bugs[index].price,),
+                child: ListItem(
+                  name: state.fish[index].name,
+                  iconUrl: state.fish[index].iconUrl,
+                  price: state.fish[index].price,
+                ),
               ),
             ),
           );

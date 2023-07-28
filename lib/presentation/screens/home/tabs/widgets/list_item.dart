@@ -1,10 +1,11 @@
-import 'package:critterpedia_plus/domain/bugs/model/bug.dart';
 import 'package:flutter/material.dart';
 
 class ListItem extends StatelessWidget {
-  final Bug bug;
+  final String name;
+  final String price;
+  final String iconUrl;
 
-  const ListItem({super.key, required this.bug});
+  const ListItem({super.key, required this.name, required this.price, required this.iconUrl, });
 
   @override
   Widget build(BuildContext context) {
@@ -30,12 +31,12 @@ class ListItem extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Image.network(
-                      bug.iconUrl,
+                      iconUrl,
                       width: 40,
                       height: 40,
                     ),
                     Text(
-                      bug.name,
+                      name,
                       style: localTheme.textTheme.bodySmall?.copyWith(
                           color: Colors.black, fontWeight: FontWeight.bold),
                       overflow: TextOverflow.ellipsis,
@@ -46,7 +47,7 @@ class ListItem extends StatelessWidget {
                       height: 8.0,
                     ),
                     Text(
-                      bug.price,
+                      price,
                       style: localTheme.textTheme.bodySmall
                           ?.copyWith(color: Colors.black87),
                     )

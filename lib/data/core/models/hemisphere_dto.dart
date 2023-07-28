@@ -1,17 +1,19 @@
 import 'package:critterpedia_plus/domain/core/hemisphere.dart';
 import 'package:equatable/equatable.dart';
-import 'package:json_annotation/json_annotation.dart';
 
-part 'hemisphere_dto.g.dart';
-
-@JsonSerializable(createToJson: false)
 class HemisphereDto extends Equatable {
   final List<int> monthsArray;
   final List<String> timesByMonth;
 
-  const HemisphereDto(this.monthsArray, this.timesByMonth);
+  const HemisphereDto({
+    required this.monthsArray,
+    required this.timesByMonth,
+  });
 
-  factory HemisphereDto.fromJson(Map<String, dynamic> json) => _$HemisphereDtoFromJson(json);
+  factory HemisphereDto.fromJson(Map<String, dynamic> json, {required String hemisphere}) => HemisphereDto(
+      monthsArray:
+          (json[hemisphere]['months_array'] as List<dynamic>).map((e) => e as int).toList(),
+      timesByMonth: (json[hemisphere]['times_by_month'] as Map<String, dynamic>).values.map((e) => e as String).toList());
 
   Hemisphere toDomain() {
     return Hemisphere(monthsArray: monthsArray, timesByMonth: timesByMonth);

@@ -5,7 +5,7 @@ class AuthorizationInterceptor extends Interceptor {
   @override
   void onRequest(RequestOptions options, RequestInterceptorHandler handler) {
     options.headers['X-API-KEY'] = _secret;
-    options.headers['Accept-Version'] = '1.0.0';
+    options.headers['Accept-Version'] = '1.6.0';
     return super.onRequest(options, handler);
   }
 }

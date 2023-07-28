@@ -15,12 +15,10 @@ class BugDataSource {
         type: NetworkRequestType.get,
         path: "nh/bugs",
         parser: (data) {
-          var list = data as Map<String, dynamic>;
-          return list.values.map((e) => BugDto.fromJson(e)).toList(growable: false);
+          var list = data as List<dynamic>;
+          return list.map((e) => BugDto.fromJson(e)).toList(growable: false);
         });
     var response = await _networkService.execute(request: request);
     return response;
   }
 }
-
-// BugDto.fromJson(data as Map<String, dynamic>)

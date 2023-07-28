@@ -12,12 +12,15 @@ class FishDataSource {
     this._networkService,
   );
 
-  // Future<Result<List<FishDto>, RequestError>> getFish() async {
-  //   var request = NetworkRequest(
-  //       type: NetworkRequestType.get,
-  //       path: "fish",
-  //       parser: (data) => AllFishDto.fromJson(data as Map<String, dynamic>));
-  //   var response = await _networkService.execute(request: request);
-  //   return response;
-  // }
+  Future<Result<List<FishDto>, RequestError>> getFish() async {
+    var request = NetworkRequest(
+        type: NetworkRequestType.get,
+        path: "nh/fish",
+        parser: (data) {
+          var list = data as List<dynamic>;
+          return list.map((e) => FishDto.fromJson(e)).toList(growable: false);
+        });
+    var response = await _networkService.execute(request: request);
+    return response;
+  }
 }

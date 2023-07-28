@@ -1,6 +1,8 @@
 import 'package:critterpedia_plus/di/di_setup.dart';
 import 'package:critterpedia_plus/presentation/screens/home/tabs/bugs/bugs_bloc.dart';
 import 'package:critterpedia_plus/presentation/screens/home/tabs/bugs/bugs_tab.dart';
+import 'package:critterpedia_plus/presentation/screens/home/tabs/fish/fish_bloc.dart';
+import 'package:critterpedia_plus/presentation/screens/home/tabs/fish/fish_tab.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -42,8 +44,9 @@ class _HomeScreenState extends State<HomeScreen> {
                     create: (context) => BugsBloc(getIt()),
                     child: const BugsTab(),
                   ),
-                  const Center(
-                    child: Text('2nd tab'),
+                  BlocProvider<FishBloc>(
+                    create: (context) => FishBloc(getIt()),
+                    child: const FishTab(),
                   ),
                   const Center(
                     child: Text('3rd tab'),

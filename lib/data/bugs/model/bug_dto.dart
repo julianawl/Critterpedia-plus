@@ -4,17 +4,19 @@ import 'package:critterpedia_plus/domain/bugs/model/bug.dart';
 import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
 
-part 'bug_dto.g.dart';
-
 @JsonSerializable(createToJson: false)
 class BugDto extends Equatable {
   final int number;
   final String name;
   final String location;
   final String rarity;
+  @JsonKey(name: "sell_nook")
   final int sellNook;
+  @JsonKey(name: "sell_flick")
   final int sellFlick;
+  @JsonKey(name: "image_url")
   final String imageUrl;
+  @JsonKey(name: "render_url")
   final String renderUrl;
   final HemisphereDto north;
   final HemisphereDto south;
@@ -32,7 +34,18 @@ class BugDto extends Equatable {
     required this.south,
   });
 
-  factory BugDto.fromJson(Map<String, dynamic> json) => _$BugDtoFromJson(json);
+  factory BugDto.fromJson(Map<String, dynamic> json) =>
+      BugDto(number: int.parse(json["number"].toString()),
+          name: json["name"] as String,
+          location: json["location"] as String,
+          rarity: json["rarity"] as String,
+          sellNook: int.parse(json["sell_nook"].toString()),
+          sellFlick: int.parse(json["sell_flick"].toString()),
+          imageUrl: json["image_url"] as String,
+          renderUrl: json["render_url"] as String,
+        south: HemisphereDto.fromJson(json, hemisphere: "south"),
+        north: HemisphereDto.fromJson(json, hemisphere: "north"),
+      );
 
   Bug toDomain() {
     return Bug(
@@ -49,6 +62,5 @@ class BugDto extends Equatable {
   }
 
   @override
-  // TODO: implement props
-  List<Object?> get props => throw UnimplementedError();
+  List<Object?> get props => [name];
 }

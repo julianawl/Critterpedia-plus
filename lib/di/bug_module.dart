@@ -10,7 +10,7 @@ abstract class BugModule {
     return BugDataSource(networkService);
   }
 
-  IBugRepository getSongRepository(BugDataSource bugDataSource) {
+  IBugRepository getBugRepository(BugDataSource bugDataSource) {
     return BugRepository(
       dataSource: bugDataSource,
     );
