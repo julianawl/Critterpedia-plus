@@ -10,16 +10,16 @@ class Fish {
   String shadow;
   String iconUrl;
   String imageUrl;
-  final Hemisphere north;
-  final Hemisphere south;
+  Hemisphere north;
+  Hemisphere south;
 
   Fish(
-      { required this.id,
+      {required this.id,
       required this.name,
       required this.price,
       required this.cjPrice,
       required this.location,
-        required this.rarity,
+      required this.rarity,
       required this.shadow,
       required this.iconUrl,
       required this.imageUrl,
