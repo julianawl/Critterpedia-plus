@@ -5,8 +5,11 @@ import 'package:json_annotation/json_annotation.dart';
 
 @JsonSerializable(createToJson: false)
 class SeaCreatureDto extends Equatable {
+  @JsonKey(name: "number")
   final int number;
+  @JsonKey(name: "name")
   final String name;
+  @JsonKey(name: "rarity")
   final String rarity;
   @JsonKey(name: "sell_nook")
   final int sellNook;

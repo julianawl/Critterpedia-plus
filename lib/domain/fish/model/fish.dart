@@ -1,28 +1,21 @@
-import 'package:critterpedia_plus/domain/core/hemisphere.dart';
+import 'package:critterpedia_plus/domain/core/critter.dart';
 
-class Fish {
-  int id;
-  String name;
-  String price;
-  String cjPrice;
-  String location;
-  String rarity;
-  String shadow;
-  String iconUrl;
-  String imageUrl;
-  Hemisphere north;
-  Hemisphere south;
+class Fish extends Critter {
+  final String cjPrice;
+  final String location;
+  final String rarity;
+  final String shadow;
 
-  Fish(
-      {required this.id,
-      required this.name,
-      required this.price,
+  const Fish({
+    required super.id,
+    required super.name,
+    required super.price,
+    required super.iconUrl,
+    required super.imageUrl,
+    required super.north,
+    required super.south,
       required this.cjPrice,
       required this.location,
       required this.rarity,
-      required this.shadow,
-      required this.iconUrl,
-      required this.imageUrl,
-      required this.south,
-      required this.north});
+      required this.shadow,});
 }

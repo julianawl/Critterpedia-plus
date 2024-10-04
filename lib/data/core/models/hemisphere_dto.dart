@@ -1,7 +1,6 @@
 import 'package:critterpedia_plus/domain/core/hemisphere.dart';
-import 'package:equatable/equatable.dart';
 
-class HemisphereDto extends Equatable {
+class HemisphereDto {
   final List<int> monthsArray;
   final List<String> timesByMonth;
 
@@ -18,7 +17,4 @@ class HemisphereDto extends Equatable {
   Hemisphere toDomain() {
     return Hemisphere(monthsArray: monthsArray, timesByMonth: timesByMonth);
   }
-
-  @override
-  List<Object> get props => [];
 }

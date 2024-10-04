@@ -1,26 +1,19 @@
-import 'package:critterpedia_plus/domain/core/hemisphere.dart';
+import 'package:critterpedia_plus/domain/core/critter.dart';
 
-class SeaCreature {
-  int id;
-  String name;
-  String price;
-  String rarity;
-  String speed;
-  String shadow;
-  String iconUrl;
-  String imageUrl;
-  Hemisphere north;
-  Hemisphere south;
+class SeaCreature extends Critter {
+  final String rarity;
+  final String speed;
+  final String shadow;
 
-  SeaCreature(
-      {required this.id,
-      required this.name,
-      required this.price,
+  const SeaCreature(
+      {required super.id,
+      required super.name,
+      required super.price,
       required this.rarity,
       required this.speed,
       required this.shadow,
-      required this.iconUrl,
-      required this.imageUrl,
-      required this.north,
-      required this.south});
+      required super.iconUrl,
+      required super.imageUrl,
+      required super.north,
+      required super.south});
 }

@@ -1,32 +1,20 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
-import 'package:critterpedia_plus/domain/core/hemisphere.dart';
-import 'package:equatable/equatable.dart';
+import 'package:critterpedia_plus/domain/core/critter.dart';
 
-class Bug extends Equatable {
-  final int id;
-  final String name;
-  final String price;
+class Bug extends Critter {
   final String flickPrice;
-  final String iconUrl;
-  final String imageUrl;
   final String location;
   final String rarity;
-  final Hemisphere north;
-  final Hemisphere south;
 
   const Bug({
-    required this.id,
-    required this.name,
-    required this.price,
+    required super.id,
+    required super.name,
+    required super.price,
     required this.flickPrice,
-    required this.iconUrl,
-    required this.imageUrl,
+    required super.iconUrl,
+    required super.imageUrl,
     required this.location,
     required this.rarity,
-    required this.north,
-    required this.south,
+    required super.north,
+    required super.south,
   });
-
-  @override
-  List<Object?> get props => [id, name, price, flickPrice, iconUrl, imageUrl];
 }

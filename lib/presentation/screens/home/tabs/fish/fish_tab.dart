@@ -16,9 +16,7 @@ class FishTab extends StatelessWidget {
         (index) => Padding(
           padding: const EdgeInsets.all(8.0),
           child: ListItem(
-            name: fish[index].name,
-            iconUrl: fish[index].iconUrl,
-            price: fish[index].price,
+            critter: fish[index],
           ),
         ),
       ),

@@ -1,4 +1,5 @@
 import 'package:critterpedia_plus/di/di_setup.dart';
+import 'package:critterpedia_plus/presentation/screens/details/details_screen.dart';
 import 'package:critterpedia_plus/presentation/screens/home/home_bloc.dart';
 import 'package:critterpedia_plus/presentation/screens/home/home_screen.dart';
 import 'package:flutter/material.dart';

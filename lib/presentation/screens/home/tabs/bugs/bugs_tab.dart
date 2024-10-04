@@ -16,9 +16,7 @@ class BugsTab extends StatelessWidget {
         (index) => Padding(
           padding: const EdgeInsets.all(8.0),
           child: ListItem(
-            name: bugs[index].name,
-            iconUrl: bugs[index].iconUrl,
-            price: bugs[index].price,
+            critter: bugs[index],
           ),
         ),
       ),
